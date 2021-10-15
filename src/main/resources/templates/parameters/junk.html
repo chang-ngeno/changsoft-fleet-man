@@ -1,0 +1,7 @@
+<select class="form-control" th:field="*{parent}" id="">
+	<option value="0" selected>Select parent parameter</option>
+	<option th:each="parameter : ${parameters} th:value=" ${parameter.id}" th:text="${parameter.paramName}">
+	</option>
+	<option value="2">Two</option>
+	<option value="3">Three</option>
+</select>

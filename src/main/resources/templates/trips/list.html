@@ -1,0 +1,31 @@
+<div th:fragment="tripList" th:switch="${trips}" class="container">
+	<h2 th:case="null">No trips yet!</h2>
+	<div th:case="*" class="table-responsive">
+		<h2>trips</h2>
+		<table class="table table-hover table-striped">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>trip Code</th>
+					<th>trip Name</th>
+					<th>Description</th>
+					<th>Parent</th>
+					<th>Edit</th>
+					<th>Delete</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="trip : ${trips}">
+					<td th:text="${trip.id}"></td>
+					<td th:text="${trip.paramCode}"></td>
+					<td th:text="${trip.paramName}"></td>
+					<td th:text="${trip.description}"></td>
+					<td th:text="${trip.parent}"></td>
+					<td><a th:href="@{/trips/edit/{id}(id=${trip.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>&nbsp;Edit</a></td>
+					<td><a th:href="@{/trips/delete/{id}(id=${trip.id})}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<p><a class="btn btn-success" href="/trips/edit">Add a new trip</a></p>
+</div>

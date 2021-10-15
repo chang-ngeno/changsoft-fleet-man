@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!--/*/ <th:block th:include="home/layout.html :: headerfiles">
+        </th:block> /*/-->
+	<title>ChangSoft FleetMan</title>
+</head>
+
+<body>
+
+	<div th:replace="home/layout.html :: header">
+	</div>
+	<div class="container">
+		<div th:replace="trips/list.html"></div>
+	</div>
+
+	<div th:replace="home/layout.html :: footer"></div>
+	<div th:replace="home/layout.html :: scriptsfiles"></div>
+
+</body>
+
+</html>

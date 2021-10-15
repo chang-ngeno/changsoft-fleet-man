@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!--/*/ <th:block th:include="home/layout.html :: headerfiles">
+        </th:block> /*/-->
+	<title>ChangSoft FleetMan</title>
+</head>
+
+<body>
+
+	<div th:replace="home/layout.html :: header">
+	</div>
+	<div class="container">
+		<h3>Update Parameter</h3>
+		<form action="#" th:action="@{/parameters/edit}" th:object="${parameter}" method="post" class="form">
+			<div class="form-group">
+				<label class="form-label" for="id">ID</label>
+				<input class="form-control" type="text" th:field="*{id}" id="id" placeholder="0" readonly>
+				<span class="danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="paramName">Parameter Name</label>
+				<input class="form-control" type="text" th:field="*{paramName}" id="paramName" placeholder="paramName">
+				<span class="danger" th:if="${#fields.hasErrors('paramName')}" th:errors="*{paramName}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="paramCode">Parameter Code</label>
+				<input class="form-control" type="text" th:field="*{paramCode}" id="paramCode" placeholder="paramCode">
+				<span class="danger" th:if="${#fields.hasErrors('paramCode')}" th:errors="*{paramCode}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="description">Description</label>
+				<input class="form-control" type="text" th:field="*{description}" id="description"
+					placeholder="description">
+				<span class="danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="parent">Parent Parameter</label>
+				<select class="form-control" th:field="*{parent}" id="">
+					<option value="0" selected>None</option>
+					<option th:each="parameter : ${parameters}" th:value=" ${parameter.id}"
+						th:text="${parameter.paramName}">
+					</option>
+				</select>
+				<span class="danger" th:if="${#fields.hasErrors('parent')}" th:errors="*{parent}"></span>
+			</div>
+			<br />
+			<input class="btn btn-primary" type="submit" value="Add Parameter">
+			<a class="btn btn-danger" th:href="@{/parameters}">Back</a>
+		</form>
+	</div>
+
+	<div th:replace="home/layout.html :: footer"></div>
+	<div th:replace="home/layout.html :: scriptsfiles"></div>
+
+</body>
+
+</html>

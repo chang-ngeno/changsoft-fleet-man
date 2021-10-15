@@ -1,0 +1,607 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://changsoft-io:8090
+  description: Generated server url
+paths:
+  /api/vehicles/{id}:
+    get:
+      tags:
+      - vehicle-controller
+      operationId: getVehicle
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VehicleDTO'
+    put:
+      tags:
+      - vehicle-controller
+      operationId: updateVehicle
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - vehicle-controller
+      operationId: deleteVehicle
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+  /api/trips/{id}:
+    get:
+      tags:
+      - trip-controller
+      operationId: getTrip
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TripDTO'
+    put:
+      tags:
+      - trip-controller
+      operationId: updateTrip
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TripDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - trip-controller
+      operationId: deleteTrip
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+  /api/tripDetails/{id}:
+    get:
+      tags:
+      - trip-detail-controller
+      operationId: getTripDetail
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TripDetailDTO'
+    put:
+      tags:
+      - trip-detail-controller
+      operationId: updateTripDetail
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TripDetailDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - trip-detail-controller
+      operationId: deleteTripDetail
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+  /api/systemParameters/{id}:
+    get:
+      tags:
+      - system-parameter-controller
+      operationId: getSystemParameter
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SystemParameterDTO'
+    put:
+      tags:
+      - system-parameter-controller
+      operationId: updateSystemParameter
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SystemParameterDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - system-parameter-controller
+      operationId: deleteSystemParameter
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+  /api/products/{id}:
+    get:
+      tags:
+      - product-controller
+      operationId: getProduct
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductDTO'
+    put:
+      tags:
+      - product-controller
+      operationId: updateProduct
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+    delete:
+      tags:
+      - product-controller
+      operationId: deleteProduct
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+  /api/vehicles:
+    get:
+      tags:
+      - vehicle-controller
+      operationId: getAllVehicles
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/VehicleDTO'
+    post:
+      tags:
+      - vehicle-controller
+      operationId: createVehicle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VehicleDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /api/trips:
+    get:
+      tags:
+      - trip-controller
+      operationId: getAllTrips
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TripDTO'
+    post:
+      tags:
+      - trip-controller
+      operationId: createTrip
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TripDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /api/tripDetails:
+    get:
+      tags:
+      - trip-detail-controller
+      operationId: getAllTripDetails
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TripDetailDTO'
+    post:
+      tags:
+      - trip-detail-controller
+      operationId: createTripDetail
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TripDetailDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /api/systemParameters:
+    get:
+      tags:
+      - system-parameter-controller
+      operationId: getAllSystemParameters
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SystemParameterDTO'
+    post:
+      tags:
+      - system-parameter-controller
+      operationId: createSystemParameter
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SystemParameterDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /api/products:
+    get:
+      tags:
+      - product-controller
+      operationId: getAllProducts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductDTO'
+    post:
+      tags:
+      - product-controller
+      operationId: createProduct
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDTO'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+components:
+  schemas:
+    VehicleDTO:
+      required:
+      - make
+      - model
+      - registrationNumber
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        make:
+          maxLength: 100
+          minLength: 0
+          type: string
+        model:
+          maxLength: 100
+          minLength: 0
+          type: string
+        registrationNumber:
+          maxLength: 30
+          minLength: 0
+          type: string
+        yearOfManufacture:
+          maxLength: 10
+          minLength: 0
+          type: string
+        mileageLastService:
+          type: integer
+          format: int64
+        lastServiceDate:
+          type: string
+          format: date
+        lastServiceStation:
+          maxLength: 150
+          minLength: 0
+          type: string
+    TripDTO:
+      required:
+      - actualFuelConsumption
+      - breakages
+      - deliveryNumber
+      - destination
+      - distance
+      - estimatedFuelConsumption
+      - fuelType
+      - origin
+      - quantity
+      - shortages
+      - tripDate
+      - unitPrice
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        deliveryNumber:
+          maxLength: 100
+          minLength: 0
+          type: string
+        tripDate:
+          type: string
+          format: date
+        quantity:
+          type: integer
+          format: int64
+        unitPrice:
+          type: number
+          format: double
+        origin:
+          maxLength: 150
+          minLength: 0
+          type: string
+        destination:
+          maxLength: 150
+          minLength: 0
+          type: string
+        distance:
+          type: number
+          format: double
+        estimatedFuelConsumption:
+          type: number
+          format: double
+        actualFuelConsumption:
+          type: number
+          format: double
+        breakages:
+          type: number
+          format: double
+        shortages:
+          type: number
+          format: double
+        fuelType:
+          type: integer
+          format: int64
+    TripDetailDTO:
+      required:
+      - detailType
+      - particulars
+      - quantity
+      - unitPrice
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        particulars:
+          maxLength: 250
+          minLength: 0
+          type: string
+        unitPrice:
+          type: number
+          format: double
+        quantity:
+          type: number
+          format: double
+        detailType:
+          type: string
+          enum:
+          - EXPENSE
+          - INCOME
+        trip:
+          type: integer
+          format: int64
+    SystemParameterDTO:
+      required:
+      - description
+      - paramCode
+      - paramName
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        paramCode:
+          maxLength: 30
+          minLength: 0
+          type: string
+        paramName:
+          maxLength: 150
+          minLength: 0
+          type: string
+        description:
+          type: string
+        parent:
+          type: integer
+          format: int64
+    ProductDTO:
+      required:
+      - productCode
+      - productName
+      - unitOfMeasurement
+      - unitPrice
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        productCode:
+          maxLength: 30
+          minLength: 0
+          type: string
+        productName:
+          maxLength: 100
+          minLength: 0
+          type: string
+        unitOfMeasurement:
+          maxLength: 100
+          minLength: 0
+          type: string
+        unitPrice:
+          type: number
+          format: double
