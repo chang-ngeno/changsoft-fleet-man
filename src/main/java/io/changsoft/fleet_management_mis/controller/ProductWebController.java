@@ -6,7 +6,6 @@ import javax.validation.Valid;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,7 +26,6 @@ public class ProductWebController {
 
 	private ProductService productService;
 
-	@Autowired
 	ProductWebController(ProductService productService) {
 		this.productService = productService;
 	}

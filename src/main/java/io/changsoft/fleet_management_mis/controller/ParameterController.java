@@ -61,6 +61,7 @@ public class ParameterController {
 
 		if (result.hasErrors()) {
 			// parameter.setId(id.get());
+			model.addAttribute("errors", result.getAllErrors());
 			return "parameters/update";
 		}
 
