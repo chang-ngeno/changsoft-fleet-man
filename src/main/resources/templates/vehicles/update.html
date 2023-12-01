@@ -12,42 +12,56 @@
 	<div th:replace="home/layout.html :: header">
 	</div>
 	<div class="container">
-		<h3>Update Parameter</h3>
-		<form action="#" th:action="@{/parameters/edit}" th:object="${parameter}" method="post" class="form">
-			<div class="form-group">
+		<h3><span th:text="${vehicle.id} != 0 ? 'Add new' : 'Update'" ></span> Vehicle</h3>
+		<form action="#" th:action="@{/vehicles/edit}" th:object="${vehicle}" method="post" class="form">
+			<div class="form-group d-none">
 				<label class="form-label" for="id">ID</label>
 				<input class="form-control" type="text" th:field="*{id}" id="id" placeholder="0" readonly>
 				<span class="danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
 			</div>
 			<div class="form-group">
-				<label class="form-label" for="paramName">Parameter Name</label>
-				<input class="form-control" type="text" th:field="*{paramName}" id="paramName" placeholder="paramName">
-				<span class="danger" th:if="${#fields.hasErrors('paramName')}" th:errors="*{paramName}"></span>
+				<label class="form-label" for="make">Vehicle make</label>
+				<input class="form-control" type="text" th:field="*{make}" id="make" placeholder="Toyota">
+				<span class="danger" th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></span>
 			</div>
 			<div class="form-group">
-				<label class="form-label" for="paramCode">Parameter Code</label>
-				<input class="form-control" type="text" th:field="*{paramCode}" id="paramCode" placeholder="paramCode">
-				<span class="danger" th:if="${#fields.hasErrors('paramCode')}" th:errors="*{paramCode}"></span>
+				<label class="form-label" for="model">Vehicle model</label>
+				<input class="form-control" type="text" th:field="*{model}" id="model" placeholder="Fortuna">
+				<span class="danger" th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></span>
 			</div>
 			<div class="form-group">
-				<label class="form-label" for="description">Description</label>
-				<input class="form-control" type="text" th:field="*{description}" id="description"
-					placeholder="description">
-				<span class="danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+				<label class="form-label" for="registrationNumber">Registration Number</label>
+				<input class="form-control" type="text" th:field="*{registrationNumber}" id="registrationNumber"
+					placeholder="KMT 101B">
+				<span class="danger" th:if="${#fields.hasErrors('registrationNumber')}" th:errors="*{registrationNumber}"></span>
 			</div>
 			<div class="form-group">
-				<label class="form-label" for="parent">Parent Parameter</label>
-				<select class="form-control" th:field="*{parent}" id="">
-					<option value="0" selected>None</option>
-					<option th:each="parameter : ${parameters}" th:value=" ${parameter.id}"
-						th:text="${parameter.paramName}">
-					</option>
-				</select>
-				<span class="danger" th:if="${#fields.hasErrors('parent')}" th:errors="*{parent}"></span>
+				<label class="form-label" for="yearOfManufacture">Year of manufacture</label>
+				<input class="form-control" type="number" th:field="*{yearOfManufacture}" id="yearOfManufacture"
+					placeholder="1900">
+				<span class="danger" th:if="${#fields.hasErrors('yearOfManufacture')}" th:errors="*{yearOfManufacture}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="mileageLastService">Mileage as at last service</label>
+				<input class="form-control" type="number" th:field="*{mileageLastService}" id="mileageLastService"
+					placeholder="2781999">
+				<span class="danger" th:if="${#fields.hasErrors('mileageLastService')}" th:errors="*{mileageLastService}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="lastServiceDate">Date of last service</label>
+				<input class="form-control" type="date" th:field="*{lastServiceDate}" id="lastServiceDate"
+					placeholder="01/01/1901">
+				<span class="danger" th:if="${#fields.hasErrors('lastServiceDate')}" th:errors="*{lastServiceDate}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="lastServiceStation">Station of last service</label>
+				<input class="form-control" type="text" th:field="*{lastServiceStation}" id="lastServiceStation"
+					placeholder="Company petrol station (Location)">
+				<span class="danger" th:if="${#fields.hasErrors('lastServiceStation')}" th:errors="*{lastServiceStation}"></span>
 			</div>
 			<br />
-			<input class="btn btn-primary" type="submit" value="Add Parameter">
-			<a class="btn btn-danger" th:href="@{/parameters}">Back</a>
+			<input class="btn btn-primary" type="submit" value="Add vehicle">
+			<a class="btn btn-danger" th:href="@{/vehicles}">Back</a>
 		</form>
 	</div>
 

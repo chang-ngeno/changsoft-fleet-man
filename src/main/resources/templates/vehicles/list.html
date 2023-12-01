@@ -6,10 +6,13 @@
 			<thead>
 				<tr>
 					<th>#</th>
-					<th>Vehicle Code</th>
-					<th>Vehicle Name</th>
-					<th>Description</th>
-					<th>Parent</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Number plate</th>
+					<th>Year of manufacture</th>
+					<th>Mileage at last service</th>
+					<th>Last service date</th>
+					<th>Last service station</th>
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
@@ -17,10 +20,13 @@
 			<tbody>
 				<tr th:each="vehicle : ${vehicles}">
 					<td th:text="${vehicle.id}"></td>
-					<td th:text="${vehicle.paramCode}"></td>
-					<td th:text="${vehicle.paramName}"></td>
-					<td th:text="${vehicle.description}"></td>
-					<td th:text="${vehicle.parent}"></td>
+					<td th:text="${vehicle.make}"></td>
+					<td th:text="${vehicle.model}"></td>
+					<td th:text="${vehicle.registrationNumber}"></td>
+					<td th:text="${vehicle.yearOfManufacture}"></td>
+					<td th:text="${vehicle.mileageLastService}"></td>
+					<td th:text="${vehicle.lastServiceDate}"></td>
+					<td th:text="${vehicle.lastServiceStation}"></td>
 					<td><a th:href="@{/vehicles/edit/{id}(id=${vehicle.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>&nbsp;Edit</a></td>
 					<td><a th:href="@{/vehicles/delete/{id}(id=${vehicle.id})}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Delete</a></td>
 				</tr>

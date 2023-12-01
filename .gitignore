@@ -38,3 +38,4 @@ build/
 ### ENV files ###
 .env*
 src/main/resources/Solution.java
+src/main/resources/data_model.txt

@@ -8,8 +8,8 @@
 					<th>#</th>
 					<th>Product Code</th>
 					<th>Product Name</th>
-					<th>Description</th>
-					<th>Parent</th>
+					<th>Measurement unit</th>
+					<th>Unit Price</th>
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
@@ -17,10 +17,10 @@
 			<tbody>
 				<tr th:each="product : ${products}">
 					<td th:text="${product.id}"></td>
-					<td th:text="${product.paramCode}"></td>
-					<td th:text="${product.paramName}"></td>
-					<td th:text="${product.description}"></td>
-					<td th:text="${product.parent}"></td>
+					<td th:text="${product.productCode}"></td>
+					<td th:text="${product.productName}"></td>
+					<td th:text="${product.unitOfMeasurement}"></td>
+					<td th:text="${product.unitPrice}"></td>
 					<td><a th:href="@{/products/edit/{id}(id=${product.id})}" class="btn btn-primary"><i class="fas fa-edit"></i>&nbsp;Edit</a></td>
 					<td><a th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Delete</a></td>
 				</tr>

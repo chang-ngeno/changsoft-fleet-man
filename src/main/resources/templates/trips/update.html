@@ -14,37 +14,82 @@
 	<div class="container">
 		<h3>Update trip</h3>
 		<form action="#" th:action="@{/trips/edit}" th:object="${trip}" method="post" class="form">
-			<div class="form-group">
+			<div class="form-group d-none">
 				<label class="form-label" for="id">ID</label>
 				<input class="form-control" type="text" th:field="*{id}" id="id" placeholder="0" readonly>
 				<span class="danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
 			</div>
+			<!-- TODO: Update the pages to correct the names e.gcome paramName instead of Trip Name -->
 			<div class="form-group">
-				<label class="form-label" for="paramName">trip Name</label>
-				<input class="form-control" type="text" th:field="*{paramName}" id="paramName" placeholder="paramName">
-				<span class="danger" th:if="${#fields.hasErrors('paramName')}" th:errors="*{paramName}"></span>
+				<label class="form-label" for="deliveryNumber">Delivery number</label>
+				<input class="form-control" type="text" th:field="*{deliveryNumber}" id="deliveryNumber" placeholder="Delivery note number">
+				<span class="danger" th:if="${#fields.hasErrors('deliveryNumber')}" th:errors="*{deliveryNumber}"></span>
 			</div>
 			<div class="form-group">
-				<label class="form-label" for="paramCode">trip Code</label>
-				<input class="form-control" type="text" th:field="*{paramCode}" id="paramCode" placeholder="paramCode">
-				<span class="danger" th:if="${#fields.hasErrors('paramCode')}" th:errors="*{paramCode}"></span>
+				<label class="form-label" for="tripDate">Trip date</label>
+				<input class="form-control" type="date" th:field="*{tripDate}" id="tripDate" placeholder="tripDate">
+				<span class="danger" th:if="${#fields.hasErrors('tripDate')}" th:errors="*{tripDate}"></span>
 			</div>
 			<div class="form-group">
-				<label class="form-label" for="description">Description</label>
-				<input class="form-control" type="text" th:field="*{description}" id="description"
-					placeholder="description">
-				<span class="danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+				<label class="form-label" for="quantity">Quantity</label>
+				<input class="form-control" type="number" th:field="*{quantity}" id="quantity"
+					placeholder="12">
+				<span class="danger" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span>
 			</div>
-			<!--<div class="form-group">
-				<label class="form-label" for="parent">Parent trip</label>
-				<select class="form-control" th:field="*{parent}" id="">
-					<option value="0" selected>None</option>
-					<option th:each="trip : ${trips}" th:value=" ${trip.id}"
-						th:text="${trip.paramName}">
-					</option>
-				</select>
-				<span class="danger" th:if="${#fields.hasErrors('parent')}" th:errors="*{parent}"></span>
-			</div>-->
+			<div class="form-group">
+				<label class="form-label" for="unitPrice">Price per unit</label>
+				<input class="form-control" type="text" th:field="*{unitPrice}" id="unitPrice"
+					placeholder="12.00">
+				<span class="danger" th:if="${#fields.hasErrors('unitPrice')}" th:errors="*{unitPrice}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="origin">Place of origin</label>
+				<input class="form-control" type="text" th:field="*{origin}" id="origin"
+					placeholder="Ruaraka">
+				<span class="danger" th:if="${#fields.hasErrors('origin')}" th:errors="*{origin}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="destination">Destination</label>
+				<input class="form-control" type="text" th:field="*{destination}" id="destination"
+					placeholder="Ol kalau">
+				<span class="danger" th:if="${#fields.hasErrors('destination')}" th:errors="*{destination}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="distance">Distance of the trip</label>
+				<input class="form-control" type="text" th:field="*{distance}" id="distance"
+					placeholder="distance">
+				<span class="danger" th:if="${#fields.hasErrors('distance')}" th:errors="*{distance}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="estimatedFuelConsumption">Estimated fuel consumption</label>
+				<input class="form-control" type="text" th:field="*{estimatedFuelConsumption}" id="estimatedFuelConsumption"
+					placeholder="estimatedFuelConsumption">
+				<span class="danger" th:if="${#fields.hasErrors('estimatedFuelConsumption')}" th:errors="*{estimatedFuelConsumption}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="actualFuelConsumption">actualFuelConsumption</label>
+				<input class="form-control" type="text" th:field="*{actualFuelConsumption}" id="actualFuelConsumption"
+					placeholder="actualFuelConsumption">
+				<span class="danger" th:if="${#fields.hasErrors('actualFuelConsumption')}" th:errors="*{actualFuelConsumption}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="breakages">breakages</label>
+				<input class="form-control" type="text" th:field="*{breakages}" id="breakages"
+					placeholder="breakages">
+				<span class="danger" th:if="${#fields.hasErrors('breakages')}" th:errors="*{breakages}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="shortages">shortages</label>
+				<input class="form-control" type="text" th:field="*{shortages}" id="shortages"
+					placeholder="shortages">
+				<span class="danger" th:if="${#fields.hasErrors('shortages')}" th:errors="*{shortages}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="fuelType">fuelType</label>
+				<input class="form-control" type="text" th:field="*{fuelType}" id="fuelType"
+					placeholder="fuelType">
+				<span class="danger" th:if="${#fields.hasErrors('fuelType')}" th:errors="*{fuelType}"></span>
+			</div>
 			<br />
 			<input class="btn btn-primary" type="submit" value="Add trip">
 			<a class="btn btn-danger" th:href="@{/trips}">Back</a>

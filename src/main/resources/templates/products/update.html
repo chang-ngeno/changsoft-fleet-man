@@ -20,20 +20,26 @@
 				<span class="danger" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
 			</div>
 			<div class="form-group">
-				<label class="form-label" for="paramName">Product Name</label>
-				<input class="form-control" type="text" th:field="*{paramName}" id="paramName" placeholder="paramName">
-				<span class="danger" th:if="${#fields.hasErrors('paramName')}" th:errors="*{paramName}"></span>
+				<label class="form-label" for="productCode">Product Code</label>
+				<input class="form-control" type="text" th:field="*{productCode}" id="productCode" placeholder="productCode">
+				<span class="danger" th:if="${#fields.hasErrors('productCode')}" th:errors="*{productCode}"></span>
 			</div>
 			<div class="form-group">
-				<label class="form-label" for="paramCode">Product Code</label>
-				<input class="form-control" type="text" th:field="*{paramCode}" id="paramCode" placeholder="paramCode">
-				<span class="danger" th:if="${#fields.hasErrors('paramCode')}" th:errors="*{paramCode}"></span>
+				<label class="form-label" for="productName">Product Name</label>
+				<input class="form-control" type="text" th:field="*{productName}" id="productName" placeholder="productName">
+				<span class="danger" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}"></span>
 			</div>
 			<div class="form-group">
-				<label class="form-label" for="description">Description</label>
-				<input class="form-control" type="text" th:field="*{description}" id="description"
-					placeholder="description">
-				<span class="danger" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+				<label class="form-label" for="unitOfMeasurement">Measurement Unit</label>
+				<input class="form-control" type="text" th:field="*{unitOfMeasurement}" id="unitOfMeasurement"
+					placeholder="unitOfMeasurement">
+				<span class="danger" th:if="${#fields.hasErrors('unitOfMeasurement')}" th:errors="*{unitOfMeasurement}"></span>
+			</div>
+			<div class="form-group">
+				<label class="form-label" for="unitPrice">Price per unit</label>
+				<input class="form-control" type="number" th:field="*{unitPrice}" id="unitPrice"
+					placeholder="unitPrice">
+				<span class="danger" th:if="${#fields.hasErrors('unitPrice')}" th:errors="*{unitPrice}"></span>
 			</div>
 			<!--<div class="form-group">
 				<label class="form-label" for="parent">Parent Product</label>
