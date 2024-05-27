@@ -19,7 +19,10 @@ public class SystemParameterDTO {
     @NotNull
     private String description;
 
-    private Long parent;
+    private Long parent; // TODO: change type to SystemParamDTO
+    
+    
+    // Getters & Setters 
 
     public Long getId() {
         return id;
